@@ -7,7 +7,7 @@ We also created multiple example scenes displaying some approaches how the libra
 
 To use the library just copy the source files in any folder inside your assets folder or download the unitypackage on itch.io linked below.
 
-The lbrary is MIT Licensed.
+The library is MIT Licensed.
 
 you can find the documentation at : https://aurelwu.github.io/  
 a unity package including examples is available at : https://aurelwu.itch.io/hexmaplibrary
