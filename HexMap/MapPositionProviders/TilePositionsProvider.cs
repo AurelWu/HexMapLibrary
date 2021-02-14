@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -121,6 +121,7 @@ namespace Wunderwunsch.HexMapLibrary
             while (unusedTiles.Count > 0)
             {
                 HashSet<Vector3Int> area = new HashSet<Vector3Int>();
+                HashSet<Vector3Int> enqueuedAlready = new HashSet<Vector3Int>();
                 Queue<Vector3Int> queue = new Queue<Vector3Int>();
                 queue.Enqueue(unusedTiles.First());
                 while (queue.Count > 0)
@@ -132,7 +133,11 @@ namespace Wunderwunsch.HexMapLibrary
                     neighbours.RemoveAll(x => !unusedTiles.Contains(x));
                     foreach (var tile in neighbours)
                     {
-                        queue.Enqueue(tile);
+                        if(!enqueuedAlready.Contains(tile))
+                        {
+                            queue.Enqueue(tile);
+                            enqueuedAlready.Add(tile);
+                        }                        
                     }
                 }
                 areas.Add(area.ToList());
